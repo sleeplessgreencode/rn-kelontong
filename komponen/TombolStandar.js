@@ -39,12 +39,7 @@ const tampilan = StyleSheet.create({
   tombol: {
     padding: 10,
     margin: 10,
-    shadowColor: "red",
-    shadowOffset: { width: 5, height: 2 },
-    shadowOpacity: 10,
-    shadowRadius: 10,
     borderRadius: 15,
-    elevation: 5,
     backgroundColor: Warna.utama
   },
   teksTombol: {

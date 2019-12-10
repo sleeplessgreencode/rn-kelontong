@@ -6,7 +6,7 @@ import TextStandar from "../komponen/TextStandar";
 
 import Warna from "../konstan/Warna";
 
-const LayarLogTransaksi = props => {
+const LayarLogTransaksi = properti => {
   return (
     <View style={tampilan.layar}>
       <View style={tampilan.tengah}>
@@ -16,7 +16,7 @@ const LayarLogTransaksi = props => {
         <View>
           <TombolStandar
             tekanTombol={() => {
-              props.navigation.navigate("Transaksi");
+              properti.navigation.navigate("Transaksi");
             }}
           >
             <TextStandar>Mulai Transaksi</TextStandar>

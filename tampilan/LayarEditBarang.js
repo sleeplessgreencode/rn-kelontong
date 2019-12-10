@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 
 import TextStandar from "../komponen/TextStandar";
 
-const LayarEditBarang = props => {
+const LayarEditBarang = properti => {
   return (
     <View style={tampilan.layar}>
       <View style={tampilan.tengah}>

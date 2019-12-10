@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 
 import TextStandar from "../komponen/TextStandar";
 
-const LayarLogTransaksi = props => {
+const LayarLogTransaksi = properti => {
   return (
     <View style={tampilan.layar}>
       <View style={tampilan.tengah}>
@@ -14,7 +14,7 @@ const LayarLogTransaksi = props => {
 };
 
 LayarLogTransaksi.navigationOptions = {
-  title: "Transaksi"
+  title: "Buat Transaksi"
 };
 
 const tampilan = StyleSheet.create({
