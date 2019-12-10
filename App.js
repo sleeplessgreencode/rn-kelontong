@@ -1,19 +1,31 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import { Text, View } from "react-native";
+import NavigasiUtama from "./navigasi/NavigasiUtama";
+import { AppLoading } from "expo";
+import * as Font from "expo-font";
+
+const muatFont = () => {
+  return Font.loadAsync({
+    "eczar-regular": require("./assets/fonts/Eczar-Regular.ttf"),
+    "eczar-bold": require("./assets/fonts/Eczar-Bold.ttf"),
+    "roboto-regular": require("./assets/fonts/RobotoCondensed-Regular.ttf"),
+    "roboto-bold": require("./assets/fonts/RobotoCondensed-Bold.ttf")
+  });
+};
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
-}
+  const [fontDimuat, setFontDimuat] = useState(false);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  if (!fontDimuat) {
+    return (
+      <AppLoading
+        startAsync={muatFont}
+        onFinish={() => {
+          setFontDimuat(true);
+        }}
+      />
+    );
+  }
+
+  return <NavigasiUtama />;
+}
