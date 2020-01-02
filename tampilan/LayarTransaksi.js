@@ -1,9 +1,11 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet, Platform } from "react-native";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
 import TextStandar from "../komponen/TextStandar";
+import TombolHeader from "../komponen/TombolHeader";
 
-const LayarLogTransaksi = properti => {
+const LayarTransaksi = properti => {
   return (
     <View style={tampilan.layar}>
       <View style={tampilan.tengah}>
@@ -13,8 +15,21 @@ const LayarLogTransaksi = properti => {
   );
 };
 
-LayarLogTransaksi.navigationOptions = {
-  title: "Buat Transaksi"
+LayarTransaksi.navigationOptions = navData => {
+  return {
+    headerTitle: "Buat Transaksi"
+    // headerRight: (
+    //   <HeaderButtons HeaderButtonComponent={TombolHeader}>
+    //     <Item
+    //       title="Buat Transaksi"
+    //       iconName={Platform.OS === "android" ? "md-cart" : "ios-cart"}
+    //       onPress={() => {
+    //         navData.navigation.navigate("Transaksi");
+    //       }}
+    //     />
+    //   </HeaderButtons>
+    // )
+  };
 };
 
 const tampilan = StyleSheet.create({
@@ -29,4 +44,4 @@ const tampilan = StyleSheet.create({
   }
 });
 
-export default LayarLogTransaksi;
+export default LayarTransaksi;

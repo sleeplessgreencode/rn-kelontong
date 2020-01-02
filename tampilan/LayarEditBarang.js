@@ -1,13 +1,19 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 
-import TextStandar from "../komponen/TextStandar";
+import TextInputStandar from "../komponen/TextInputStandar";
+import TombolStandar from "../komponen/TombolStandar";
 
 const LayarEditBarang = properti => {
   return (
     <View style={tampilan.layar}>
-      <View style={tampilan.tengah}>
-        <TextStandar>Layar Edit Barang</TextStandar>
+      <TextInputStandar label="Nama Barang" />
+      <TextInputStandar label="Kategori Barang" />
+      <TextInputStandar label="Kategori Barang" />
+      <View style={tampilan.kontainerTombol}>
+        <TombolStandar tekanTombol={() => {}} style={tampilan.tombolTambah}>
+          Tambahkan
+        </TombolStandar>
       </View>
     </View>
   );
@@ -22,10 +28,10 @@ const tampilan = StyleSheet.create({
     flex: 1,
     backgroundColor: Warna.abuUtama
   },
-  tengah: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
+  kontainerTombol: {
+    flexDirection: "row",
+    alignContent: "center",
+    justifyContent: "center"
   }
 });
 

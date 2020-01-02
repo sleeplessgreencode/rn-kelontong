@@ -1,8 +1,10 @@
 import React from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, StyleSheet, Platform } from "react-native";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
 import TombolStandar from "../komponen/TombolStandar";
 import TextStandar from "../komponen/TextStandar";
+import TombolHeader from "../komponen/TombolHeader";
 
 import Warna from "../konstan/Warna";
 
@@ -27,8 +29,21 @@ const LayarLogTransaksi = properti => {
   );
 };
 
-LayarLogTransaksi.navigationOptions = {
-  title: "Daftar Transaksi"
+LayarLogTransaksi.navigationOptions = navData => {
+  return {
+    headerTitle: "Daftar Transaksi",
+    headerRight: (
+      <HeaderButtons HeaderButtonComponent={TombolHeader}>
+        <Item
+          title="Buat Transaksi"
+          iconName={Platform.OS === "android" ? "md-cart" : "ios-cart"}
+          onPress={() => {
+            navData.navigation.navigate("Transaksi");
+          }}
+        />
+      </HeaderButtons>
+    )
+  };
 };
 
 const tampilan = StyleSheet.create({

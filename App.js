@@ -3,6 +3,16 @@ import { Text, View } from "react-native";
 import NavigasiUtama from "./navigasi/NavigasiUtama";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
+import { init } from "./database/db";
+
+// init()
+//   .then(() => {
+//     console.log("initialized database!");
+//   })
+//   .catch(err => {
+//     console.log("initailized database failed!");
+//     console.log(err);
+//   });
 
 const muatFont = () => {
   return Font.loadAsync({

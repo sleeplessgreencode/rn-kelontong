@@ -1,11 +1,11 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList, Alert } from "react-native";
+import { View, StyleSheet, FlatList, Alert, Platform } from "react-native";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
 import { BARANG } from "../data/dummy-data";
 
-import TombolStandar from "../komponen/TombolStandar";
-import TextStandar from "../komponen/TextStandar";
 import ListBarang from "../komponen/ListBarang";
+import TombolHeader from "../komponen/TombolHeader";
 
 const LayarBarang = properti => {
   const renderBarang = dataFlatList => {
@@ -45,19 +45,24 @@ const LayarBarang = properti => {
         showsVerticalScrollIndicator={false}
       />
     </View>
-    //     <TextStandar>Layar Barang</TextStandar>
-    //     <TombolStandar
-    //       tekanTombol={() => {
-    //         props.navigation.navigate("EditBarang");
-    //       }}
-    //     >
-    //       <TextStandar>Tambahkan Barang</TextStandar>
-    //     </TombolStandar>
   );
 };
 
-LayarBarang.navigationOptions = {
-  title: "Daftar Barang"
+LayarBarang.navigationOptions = navData => {
+  return {
+    headerTitle: "Daftar Barang",
+    headerRight: (
+      <HeaderButtons HeaderButtonComponent={TombolHeader}>
+        <Item
+          title="Tambah Barang"
+          iconName={Platform.OS === "android" ? "md-add" : "ios-add"}
+          onPress={() => {
+            navData.navigation.navigate("EditBarang");
+          }}
+        />
+      </HeaderButtons>
+    )
+  };
 };
 
 const tampilan = StyleSheet.create({

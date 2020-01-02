@@ -40,7 +40,9 @@ const tampilan = StyleSheet.create({
     padding: 10,
     margin: 10,
     borderRadius: 15,
-    backgroundColor: Warna.utama
+    backgroundColor: Warna.utama,
+    alignContent: "center",
+    justifyContent: "center"
   },
   teksTombol: {
     fontFamily: "roboto-bold",
